@@ -1,0 +1,667 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Add this inside <head> -->
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap" rel="stylesheet">
+
+
+  <title>Happy Birthday</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #faf7f5;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 40px;
+    }
+
+    .section {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+	
+
+    .photos img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 15px;
+      margin: 10px;
+    }
+
+    .countdown-box {
+      background: #ffe6e6;
+      padding: 20px;
+      border-radius: 15px;
+      font-size: 1.5rem;
+    }
+
+    /* Romantic Letter Section */
+.love-letter {
+  position: relative;
+  margin-top: 20px;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #fff5fa, #ffe8f1);
+  overflow: hidden;
+}
+
+
+.letter-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 35px 25px;
+  max-width: 650px;
+  box-shadow: 0 12px 30px rgba(255, 140, 180, 0.25);
+  border: 2px solid #ffd6e7;
+  animation: fadeInSoft 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+.bengali-message {
+  font-family: 'Siyam Rupali', cursive;
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.7;
+  text-align: left;
+}
+
+/* Fade-in animation */
+@keyframes fadeInSoft {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Floating hearts */
+.floating-hearts::before,
+.floating-hearts::after {
+  content: "❤";
+  position: absolute;
+  font-size: 22px;
+  color: rgba(255, 90, 140, 0.75);
+  animation: floatUp 6s linear infinite;
+}
+
+.floating-hearts::after {
+  left: 80%;
+  animation-delay: 2.5s;
+}
+
+.floating-hearts::before {
+  left: 20%;
+}
+
+/* Sparkles */
+.floating-hearts span {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 170, 200, 0.9);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  animation: sparkle 4s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes floatUp {
+  0% {
+    transform: translateY(50px) scale(0.7);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-220px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% {
+    transform: scale(0.5);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+}
+
+/* Mobile improvements */
+@media (max-width: 480px) {
+  .letter-card {
+    padding: 28px 20px;
+  }
+
+  .bengali-message {
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+}
+
+        .reasons {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .reasons h2 {
+      font-size: 2rem;
+      color: #ff6fa8;
+      margin-bottom: 30px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 0 10px;
+    }
+
+    .card {
+      background: #ffe8f1;
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(255, 181, 194, 0.4);
+      transition: 0.3s ease;
+      border: 2px solid #ffd3e3;
+    }
+
+    .card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 10px 25px rgba(255, 166, 190, 0.5);
+    }
+
+    .card h3 {
+      color: #ff79a8;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s forwards;
+    }
+
+    .fade:nth-child(1) { animation-delay: 0.1s; }
+    .fade:nth-child(2) { animation-delay: 0.2s; }
+    .fade:nth-child(3) { animation-delay: 0.3s; }
+    .fade:nth-child(4) { animation-delay: 0.4s; }
+    .fade:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .reasons h2 {
+        font-size: 1.6rem;
+      }
+
+      .card {
+        padding: 18px;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+      }
+    }
+    /* Typewriter Animation */
+.typewriter {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ff6fa8;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ff6fa8;
+  margin-bottom: 25px;
+  animation: cursor .6s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes cursor {
+  50% { border-color: transparent; }
+}
+
+/* Fireworks Canvas */
+#fireworksCanvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 200px;
+  pointer-events: none;
+}
+
+.photos-grid {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.photos-grid h2 {
+  font-size: 2rem;
+  color: #ff6fa8;
+  margin-bottom: 25px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.photo-card {
+  background: #fff0f5;
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: 0 6px 15px rgba(255, 150, 190, 0.3);
+  transition: 0.3s ease;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 200px;  /* uniform height */
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.photo-card p {
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Hover effect */
+.photo-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(255, 140, 180, 0.4);
+}
+
+.songs-carousel {
+  max-width: 900px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.songs-carousel h2 {
+  font-size: 2rem;
+  color: #ff6fa8;
+  margin-bottom: 25px;
+}
+
+/* Carousel Wrapper */
+.carousel-wrapper {
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+
+.carousel {
+  display: flex;
+  gap: 20px;
+}
+
+.song-card {
+  flex: 0 0 auto; /* Prevent shrinking */
+  background: #ffe8f1;
+  border-radius: 20px;
+  padding: 20px 15px;
+  width: 180px; /* uniform card width */
+  box-shadow: 0 6px 18px rgba(255, 181, 194, 0.4);
+  transition: 0.3s ease;
+  text-align: center;
+  border: 2px solid #ffd3e3;
+}
+
+.song-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(255, 166, 190, 0.5);
+}
+
+.song-card a {
+  text-decoration: none;
+  color: #444;
+}
+
+.song-card p {
+  margin-top: 10px;
+  font-size: 1rem;
+}
+
+.song-icon {
+  width: 40px;
+  height: 40px;
+}
+
+/* Hide scrollbar for better look */
+.carousel-wrapper::-webkit-scrollbar {
+  display: none;
+}
+.carousel-wrapper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+  .song-card {
+    width: 150px;
+    padding: 15px 10px;
+  }
+
+  .songs-carousel h2 {
+    font-size: 1.6rem;
+  }
+
+  .song-card p {
+    font-size: 0.9rem;
+  }
+}
+
+
+
+</style>
+
+</head>
+<body>
+
+<h1 class="typewriter" id="birthdayTitle"></h1>
+<canvas id="fireworksCanvas"></canvas>
+
+
+<section class="love-letter">
+  <div class="letter-card">
+    <p class="bengali-message">
+      প্রিয় শুভ, <br><br>
+      তোমায় জন্মদিনের অনেক অনেক শুভে্ছা, আদোর আর ভালবাসা। তোমার জীবনে এই দিনটি বার বার ফিরে আসুক অনেক আনন্দের সঙ্গে,এই প্রার্থনা করি। <br><br>
+      তোমার সুন্দর হাসি যেন আমি আরো 1000 1000 বছর দেখতে পাই, সেই প্রার্থনা করি। ঈশ্বর তোমার সব ইছা পূরণ করুক, সুস্থ রাখুক তোমায় সারাজীবন। <br><br>
+      অনেক অনেক ভালবাসা তোমার জন্য।
+    </p>
+  </div>
+
+  <!-- Floating hearts + sparkles -->
+  <div class="floating-hearts">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+</section>
+
+
+
+
+<!-- NEW PASTEL CARD GRID SECTION STARTS HERE -->
+<section class="reasons">
+  <h2>💞 Five Little Reasons Why I Love You</h2>
+
+  <div class="card-grid">
+
+    <div class="card fade">
+      <h3>☀️ Your Sunshine Energy</h3>
+      <p>You’re a ball of sunshine — energetic, funny, and your smile is to die for. 😍  
+      You brighten my whole world.</p>
+    </div>
+
+    <div class="card fade">
+      <h3>🤗 How You Care After Fights</h3>
+      <p>No matter how hard things get, you always make sure I feel safe, loved, and at peace.  
+      I’m truly grateful for you. 🥹</p>
+    </div>
+
+    <div class="card fade">
+      <h3>🎶 Your Magical Voice</h3>
+      <p>Your singing always leaves me in awe.  
+      When you sing for me, my heart feels full of gratitude and happiness. 🤩</p>
+    </div>
+
+    <div class="card fade">
+      <h3>🌿 How You Calm Me</h3>
+      <p>You talk me out of every anxiety and confusion.  
+      It means everything knowing I can count on you. 🥹</p>
+    </div>
+
+    <div class="card fade">
+      <h3>😂 Your Sense of Humor</h3>
+      <p>You make me laugh in the most effortless, genuine way.  
+      You make everything feel lighter. 💗</p>
+    </div>
+
+  </div>
+</section>
+<!-- NEW SECTION ENDS HERE -->
+
+
+
+
+<section class="photos-grid">
+  <h2>Our Moments</h2>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <img src="Pujo_Date.png" alt="Pujo Date" />
+      <p>Pujo Date ❤️</p>
+    </div>
+    <div class="photo-card">
+      <img src="Pujo_date_2.png" alt="First Pujo Together" />
+      <p>First Pujo Together 🥰</p>
+    </div>
+    <div class="photo-card">
+      <img src="Funny_you.png" alt="Cool and Funny😂" />
+      <p>Cool and Funny😂 </p>
+    </div>
+    <div class="photo-card">
+      <img src="My_favourite.png" alt="Who is this cutie?🤩" />
+      <p>Who is this cutie?🤩</p>
+    </div>
+	<div class="photo-card">
+      <img src="Gibli_Us.png" alt="WE Look Good As Cartoon,No?😁" />
+      <p>WE Look Good As Cartoon,No?😁</p>
+    </div>
+	<div class="photo-card">
+      <img src="Look_nice.png" alt="😯🥰" />
+      <p>😯🥰</p>
+	</div>  
+  </div>
+</section>
+
+
+
+<section class="songs-carousel">
+  <h2>Songs For You 🎵</h2>
+  <div class="carousel-wrapper">
+    <div class="carousel">
+      <div class="song-card">
+        <a href="https://youtu.be/gSNCmrDultY?si=OWEAhQt6DVJ2QgNv" target="_blank">
+          <img src="https://img.youtube.com/vi/gSNCmrDultY/hqdefault.jpg" alt="Tomar Prio Ritu Barsha Tai" class="song-icon" />
+          <p>Tomar Prio Ritu Barsha Tai</p>
+        </a>
+      </div>
+      <div class="song-card">
+        <a href="https://youtu.be/Pdz0V0vqA4Y?si=aLKDta-hneWd6HIP" target="_blank">
+          <img src="https://img.youtube.com/vi/Pdz0V0vqA4Y/hqdefault.jpg" alt="Mera Saaya Saath Hoga" class="song-icon" />
+          <p>Mera Saaya Saath Hoga</p>
+        </a>
+      </div>
+      <div class="song-card">
+        <a href="https://youtu.be/fOymevxe1pI?si=qYOl1lmS5kq2O3cx" target="_blank">
+          <img src="https://img.youtube.com/vi/fOymevxe1pI/hqdefault.jpg" alt="Can't Help Falling in Love" class="song-icon" />
+          <p>Can't Help Falling in Love </p>
+        </a>
+      </div>
+      <div class="song-card">
+        <a href="https://youtu.be/WNmsURkR2-w?si=HYL7qXJQZlUrxknm" target="_blank">
+          <img src="https://img.youtube.com/vi/WNmsURkR2-w/hqdefault.jpg" alt="The Fate of Ophelia " class="song-icon" />
+          <p>The Fate of Ophelia </p>
+        </a>
+      </div>
+	  
+	  <div class="song-card">
+        <a href="https://youtu.be/Vj1XnufPUaI?si=iahxgSlOa74xpW20" target="_blank">
+          <img src="https://img.youtube.com/vi/Vj1XnufPUaI/hqdefault.jpg" alt="So My Darling" class="song-icon" />
+          <p>So My Darling</p>
+        </a>
+      </div>
+	  <div class="song-card">
+        <a href="https://youtu.be/3jwwqoLA1eQ?si=1fxRLjI3BZq2ZBj2" target="_blank">
+          <img src="https://img.youtube.com/vi/3jwwqoLA1eQ/hqdefault.jpg" alt="I Hope You Think of Me" class="song-icon" />
+          <p>I Hope You Think of Me</p>
+        </a>
+      </div>
+	  <div class="song-card">
+        <a href="https://youtu.be/Z25aDKQ7Ojw?si=MmVlFA5YJyyMEMf8" target="_blank">
+          <img src="https://img.youtube.com/vi/Z25aDKQ7Ojw/hqdefault.jpg" alt="Hurts To be Human" class="song-icon" />
+          <p>Hurts To be Human</p>
+        </a>
+      </div>
+	  <div class="song-card">
+        <a href="https://youtu.be/PGTDWwH9qn0?si=FIVdujL3xYpwSjk2" target="_blank">
+          <img src="https://img.youtube.com/vi/PGTDWwH9qn0/hqdefault.jpg" alt="Tu Hain To" class="song-icon" />
+          <p>Tu Hain To</p>
+        </a>
+      </div>
+	  
+      <!-- Add more song cards as needed -->
+    </div>
+  </div>
+</section>
+
+
+  <script>
+    // Simple countdown script - set his birthday date below
+    const birthday = new Date("2025-11-16 00:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const diff = birthday - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "It's your day! 🎉";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
+    }, 1000);
+  </script>
+  <script>
+// Typewriter text load
+const titleElement = document.getElementById("birthdayTitle");
+const text = "Happy Birthday Subha 🎉❤️";
+
+let index = 0;
+
+function type() {
+  if (index < text.length) {
+    titleElement.textContent += text.charAt(index);
+    index++;
+    setTimeout(type, 90);
+  } else {
+    launchFireworks();
+  }
+}
+
+window.onload = type;
+
+
+// ---------------- FIREWORKS EFFECT ----------------
+
+const canvas = document.getElementById("fireworksCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = 250;
+
+let particles = [];
+
+function createParticle(x, y) {
+  const size = Math.random() * 4 + 2;
+  const speed = Math.random() * 3 + 1;
+  const angle = Math.random() * 2 * Math.PI;
+
+  particles.push({
+    x: x,
+    y: y,
+    size: size,
+    speedX: Math.cos(angle) * speed,
+    speedY: Math.sin(angle) * speed,
+    alpha: 1
+  });
+}
+
+function launchFireworks() {
+  for (let i = 0; i < 80; i++) {
+    createParticle(window.innerWidth / 2, 120);
+  }
+  animateFireworks();
+}
+
+function animateFireworks() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach((p, index) => {
+    p.x += p.speedX;
+    p.y += p.speedY;
+    p.alpha -= 0.02;
+
+    if (p.alpha <= 0) {
+      particles.splice(index, 1);
+    } else {
+      ctx.fillStyle = "rgba(255, 111, 168," + p.alpha + ")";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  });
+
+  if (particles.length > 0) {
+    requestAnimationFrame(animateFireworks);
+  }
+}
+</script>
+
+
+
+</body>
+</html>
