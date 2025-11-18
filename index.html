@@ -12,7 +12,7 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Hind Siliguri', sans-serif;
       background: #faf7f5;
       color: #333;
       text-align: center;
@@ -243,11 +243,13 @@
   font-size: 2.5rem;
   font-weight: 700;
   color: #ff6fa8;
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   border-right: 3px solid #ff6fa8;
   margin-bottom: 25px;
   animation: cursor .6s step-end infinite;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
 @keyframes typing {
@@ -395,6 +397,53 @@
     font-size: 0.9rem;
   }
 }
+
+@media (max-width: 480px) {
+  .typewriter {
+    font-size: 1.8rem; /* smaller font on mobile */
+  }
+}
+
+/* Lightbox styles */
+.lightbox {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80%;
+  margin-bottom: 15px;
+  border-radius: 15px;
+}
+
+.lightbox p {
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+
 
 
 
@@ -563,28 +612,16 @@
   </div>
 </section>
 
+<!-- Lightbox overlay -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-content" id="lightbox-img" />
+  <p id="lightbox-caption"></p>
+</div>
 
-  <script>
-    // Simple countdown script - set his birthday date below
-    const birthday = new Date("2025-11-16 00:00:00").getTime();
 
-    setInterval(() => {
-      const now = new Date().getTime();
-      const diff = birthday - now;
 
-      if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "It's your day! 🎉";
-        return;
-      }
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${mins}m ${secs}s`;
-    }, 1000);
-  </script>
   <script>
 // Typewriter text load
 const titleElement = document.getElementById("birthdayTitle");
@@ -596,7 +633,7 @@ function type() {
   if (index < text.length) {
     titleElement.textContent += text.charAt(index);
     index++;
-    setTimeout(type, 90);
+    setTimeout(type, 50);
   } else {
     launchFireworks();
   }
@@ -611,7 +648,7 @@ const canvas = document.getElementById("fireworksCanvas");
 const ctx = canvas.getContext("2d");
 
 canvas.width = window.innerWidth;
-canvas.height = 250;
+canvas.height = window.innerWidth < 480 ? 180 : 250;
 
 let particles = [];
 
@@ -659,6 +696,35 @@ function animateFireworks() {
     requestAnimationFrame(animateFireworks);
   }
 }
+
+// Get elements
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const closeBtn = document.getElementsByClassName('close')[0];
+
+// Add click event to all photo cards
+document.querySelectorAll('.photo-card img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;          // Show clicked image
+    lightboxCaption.textContent = img.alt; // Show alt text as caption
+  });
+});
+
+// Close lightbox
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+// Also close if clicking outside the image
+lightbox.addEventListener('click', e => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
+});
+
+
 </script>
 
 
